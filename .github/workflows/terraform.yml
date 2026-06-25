@@ -1,7 +1,7 @@
 name: terraform CI
 on:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   # pull_request:
   #   branches: [ "main" ]
   workflow_dispatch:
@@ -16,4 +16,11 @@ jobs:
 
       - name: azure login
         run: az login --service-principal --username 81d20314-ef05-46eb-8bdf-473e9e20664f --password eNO8Q~2YqU2cgobppchyT0u~iPoJJ8CCUIp_Ja12 --tenant 2a12578d-9130-4f98-9fe6-c8a422505a24
-
+      - name: terraform init
+        run : terraform init
+      - name: plan
+        run : terraform plan
+      - name: apply
+        run : terraform apply -auto-approve
+        
+        
